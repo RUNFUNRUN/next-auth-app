@@ -6,20 +6,36 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "check": "biome check --apply-unsafe .",
+    "postinstall": "dotenv -e .env.local -- prisma generate",
+    "prisma:migrate": "dotenv -e .env.local -- prisma migrate dev dev --name init",
+    "prisma:generate": "dotenv -e .env.local -- prisma generate",
+    "prisma:studio": "dotenv -e .env.local -- prisma studio"
   },
   "dependencies": {
+    "@auth/prisma-adapter": "^1.5.2",
+    "@prisma/client": "^5.12.1",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
+    "lucide-react": "^0.365.0",
+    "next": "14.0.3",
+    "next-auth": "^5.0.0-beta.16",
+    "next-themes": "^0.3.0",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.0.3"
+    "tailwind-merge": "^2.2.2",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@biomejs/biome": "^1.6.4",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
+    "dotenv-cli": "^7.4.1",
     "postcss": "^8",
-    "tailwindcss": "^3.3.0"
+    "prisma": "^5.12.1",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5"
   }
 }
